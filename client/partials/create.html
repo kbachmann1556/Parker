@@ -1,4 +1,4 @@
-<div ng-controller = 'SpacesController'>
+<div ng-controller = 'ParkingSpacesController'>
 <title>Rent your Parking Space</title>
 </head>
 <body>
@@ -17,6 +17,12 @@
 	Zip Code: <input type = 'text' ng-model = 'newSpace.zip' placeholder = 'zip...'>
 	<p>Image</p>
 	URL (optional): <input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
+	<p>Price</p>
+	<input type = 'text' ng-model = 'newSpace.price' placeholder = 'price...'>
+	<p>Date Start</p>
+	<input type = 'date' ng-model = 'newSpace.dateStart'>
+	<p>Date End</p>
+	<input type = 'date' ng-model = 'newSpace.dataEnd'>
 	<a href="#/result" ng-click = 'addSpace(user._id)'><button>Add</button></a>
 </body>
 </div>
