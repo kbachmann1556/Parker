@@ -1,0 +1,12 @@
+<div ng-controller = 'RequestsController'>
+<title>Parker Welcome</title>
+</head>
+<body>
+	<a href="#/login">Login to host a spot</a>
+	<!-- <a href="#/create">Host a Spot</a> -->
+	<input ng-model = 'request.location' type = 'text' placeholder = 'location'>
+	Date start: <input ng-model = 'request.start' type = 'date'>
+	Date end: <input ng-model = 'request.end' type = 'date'>
+	<a href='#/results' ng-click = 'sendRequest()'><button>Search</button></a>
+</body>
+</div>

@@ -1,0 +1,16 @@
+<div ng-controller = 'UsersController'>
+<title>Login or Register</title>
+</head>
+<body>
+	<p>Login</p>
+	Username: <input type = 'text' ng-model = 'loginUser.username'>
+	Password: <input type = 'password' ng-model = 'loginUser.password'>
+	<a href="#/create"><button>Login - Create Listing</button></a>
+	<p>Register</p>
+	Username: <input type = 'text' ng-model = 'newUser.name'>
+	Email: <input type = 'email' ng-model = 'newUser.email'>
+	Password: <input type = 'password' ng-model = 'newUser.password'>
+	Confirm Password: <input type = 'password' ng-model = 'newUser.confirmPassword'>
+	<a href="#/create"><button>Register - Create Listing</button></a>
+</body>
+</div>

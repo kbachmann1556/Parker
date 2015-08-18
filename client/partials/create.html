@@ -1,0 +1,22 @@
+<div ng-controller = 'SpacesController'>
+<title>Rent your Parking Space</title>
+</head>
+<body>
+	<h3>Rent your Parking Space</h3>
+	<p>Type of Spot: </p>
+	<input type = 'radio' ng-model = 'newSpace.type' value = 'On Street'> On Street
+	<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Covered'> Off Street-Covered
+	<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Uncovered'> Off Street-Uncovered
+	<p>Type of Car:</p>
+	<input type = 'radio' ng-model = 'newSpace.car' value = 'Motorcycle'> Motorcycle
+	<input type = 'radio' ng-model = 'newSpace.car' value = 'Compact'> Compact
+	<input type = 'radio' ng-model = 'newSpace.car' value = 'Truck/SUV'> Truck/SUV
+	<p>Location</p>
+	Address: <input type = 'text' ng-model = 'newSpace.address' placeholder = 'address...'>
+	State: <input type = 'text' ng-model = 'newSpace.state' placeholder = 'state...'>
+	Zip Code: <input type = 'text' ng-model = 'newSpace.zip' placeholder = 'zip...'>
+	<p>Image</p>
+	URL (optional): <input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
+	<a href="#/result" ng-click = 'addSpace(user._id)'><button>Add</button></a>
+</body>
+</div>
