@@ -3,7 +3,9 @@ parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFa
 	ParkingSpaceFactory.getSpaces(function (data){
 		$scope.spaces = data;
 	});
+	$scope.user = [];
 	ParkingSpaceFactory.getUser(function (data){
+		// console.log(data);
 		$scope.user = data;
 	})
 	$scope.addSpace = function (){

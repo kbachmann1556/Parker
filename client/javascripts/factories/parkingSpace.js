@@ -15,5 +15,11 @@ parkerApp.factory('ParkingSpaceFactory', function ($http) {
 			callback(output);
 		})
 	}
+	factory.getUser = function (callback){
+		$http.get('/username').success(function (output){
+			// console.log(output);
+			callback(output);
+		})
+	}
 	return factory;
 })

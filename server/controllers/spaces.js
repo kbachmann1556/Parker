@@ -13,13 +13,14 @@ module.exports = (function() {
 			})
 		},
 		username: function (req, res){
+			console.log(req.session.value);
 			var username = req.session.value;
+			// console.log(username);
 			res.json(username);
 		},
 		addSpace: function (req, res){
 			var space = new Space({
 				spaceType: req.body.type,
-				dateCreated: {type: Date, default: new Date},
 				carType: req.body.car,
 				address: req.body.address,
 				state: req.body.state,
