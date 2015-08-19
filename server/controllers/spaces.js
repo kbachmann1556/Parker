@@ -23,6 +23,7 @@ module.exports = (function() {
 				spaceType: req.body.type,
 				carType: req.body.car,
 				address: req.body.address,
+				city: req.body.city,
 				state: req.body.state,
 				zip: req.body.zip,
 				image: req.body.image,
@@ -30,8 +31,9 @@ module.exports = (function() {
 				dateStart: req.body.dateStart,
 				dateEnd: req.body.dateEnd,
 				reserved: false,
-				_UserHost: req.session.value._id
+				_UserHost: req.params.id
 			})
+			console.log(space);
 			space.save(function (err){
 				if(err){
 					console.log(err);

@@ -21,7 +21,7 @@ module.exports = function (app) {
 	app.get('/username', function (req, res){
 		spaces.username(req, res);
 	})
-	app.post('/addSpace', function (req, res){
+	app.post('/addSpace/:id', function (req, res){
 		spaces.addSpace(req, res)
 	})
 	app.get('/hostSpace/:id', function (req, res){
