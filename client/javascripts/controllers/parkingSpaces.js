@@ -8,9 +8,9 @@ parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFa
 		// console.log(data);
 		$scope.user = data;
 	})
-	$scope.addSpace = function (){
-		ParkingSpaceFactory.addSpace($scope.newSpace, function (data){
-			ParkingSpaceFactory.hostSpace($scope.user._id, data._id, function (data){
+	$scope.addSpace = function (user_id){
+		ParkingSpaceFactory.addSpace($scope.newSpace, user_id,function (data){
+			ParkingSpaceFactory.hostSpace(user_id, data._id, function (data){
 				console.log('you made it here', data);
 			})
 		})

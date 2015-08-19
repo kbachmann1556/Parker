@@ -3,28 +3,37 @@
 </head>
 <body>
 	{{user.username}}
-	{{spaces.name}}
 	<h3>Rent your Parking Space</h3>
 	<p>Type of Spot: </p>
-	<input type = 'radio' ng-model = 'newSpace.type' value = 'On Street'> On Street
-	<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Covered'> Off Street-Covered
-	<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Uncovered'> Off Street-Uncovered
-	<p>Type of Car:</p>
-	<input type = 'radio' ng-model = 'newSpace.car' value = 'Motorcycle'> Motorcycle
-	<input type = 'radio' ng-model = 'newSpace.car' value = 'Compact'> Compact
-	<input type = 'radio' ng-model = 'newSpace.car' value = 'Truck/SUV'> Truck/SUV
-	<p>Location</p>
-	Address: <input type = 'text' ng-model = 'newSpace.address' placeholder = 'address...'>
-	State: <input type = 'text' ng-model = 'newSpace.state' placeholder = 'state...'>
-	Zip Code: <input type = 'text' ng-model = 'newSpace.zip' placeholder = 'zip...'>
-	<p>Image</p>
-	URL (optional): <input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
-	<p>Price</p>
-	<input type = 'text' ng-model = 'newSpace.price' placeholder = 'price...'>
-	<p>Date Start</p>
-	<input type = 'date' ng-model = 'newSpace.dateStart'>
-	<p>Date End</p>
-	<input type = 'date' ng-model = 'newSpace.dataEnd'>
-	<a href="#/result" ng-click = 'addSpace(user._id)'><button>Add</button></a>
+	<form name = 'spaceForm'>
+		<input type = 'radio' ng-model = 'newSpace.type' value = 'On Street'> On Street
+		<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Covered'> Off Street-Covered
+		<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Uncovered'> Off Street-Uncovered
+		<p>Type of Car:</p>
+		<input type = 'radio' ng-model = 'newSpace.car' value = 'Motorcycle'> Motorcycle
+		<input type = 'radio' ng-model = 'newSpace.car' value = 'Compact'> Compact
+		<input type = 'radio' ng-model = 'newSpace.car' value = 'Truck/SUV'> Truck/SUV
+		<p>Location</p>
+		Address: <input name = 'address' type = 'text' ng-model = 'newSpace.address' placeholder = 'address...' required>
+		City: <input name = 'city' type = 'text' ng-model = 'newSpace.city' placeholder = 'city...' required>
+		State: <input name = 'state' type = 'text' ng-model = 'newSpace.state' ng-minlenght = '2' ng-maxlength = '2' placeholder = 'state...' required>
+		Zip Code: <input name = 'zip' type = 'text' ng-model = 'newSpace.zip' placeholder = 'zip...' ng-length = '5' required>
+		<p ng-show = 'spaceForm.address.$error.required && !spaceForm.address.$pristine'>Address is required</p>
+		<p ng-show = 'spaceForm.city.$error.required && !spaceForm.city.$pristine'>City is required</p>
+		<p ng-show = 'spaceForm.state.$error.required && !spaceForm.state.$pristine'>State is required</p>
+		<p ng-show = 'spaceForm.state.$error.minlength && !spaceForm.state.$pristine'>State must only be 2 letters long</p>
+		<p ng-show = 'spaceForm.state.$error.maxlength && !spaceForm.state.$pristine'>State must only be 2 letters long</p>
+		<p ng-show = 'spaceForm.zip.$error.required && !spaceForm.zip.$pristine'>Zip Code is required</p>
+		<p ng-show = 'spaceForm.zip.$error.length && !spaceForm.zip.$pristine'>Zip Code must be 5 characters long</p>
+		<p>Image</p>
+		URL (optional): <input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
+		<p>Price</p>
+		<input type = 'text' ng-model = 'newSpace.price' placeholder = 'price...'>
+		<p>Date Start</p>
+		<input type = 'date' ng-model = 'newSpace.dateStart'>
+		<p>Date End</p>
+		<input type = 'date' ng-model = 'newSpace.dateEnd'>
+	</form>
+	<a href="#/result" ng-click = 'addSpace(user._id)'><button ng-disabled = 'spaceForm.$invalid'>Add</button></a>
 </body>
 </div>
