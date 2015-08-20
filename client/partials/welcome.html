@@ -1,12 +1,48 @@
-<!-- <div ng-controller = 'RequestsController'> -->
+<div ng-controller = 'ParkingSpacesController'>
 <title>Parker Welcome</title>
+<style type="text/css">
+.titleDescription{
+	margin-left: 135px;
+}
+</style>
 </head>
 <body>
-	<a href="#/login">Login to host a spot</a>
-	<!-- <a href="#/create">Host a Spot</a> -->
-	<input ng-model = 'request.location' type = 'text' placeholder = 'location'>
-	Date start: <input ng-model = 'request.start' type = 'date'>
-	Date end: <input ng-model = 'request.end' type = 'date'>
-	<a href='#/results' ng-click = 'sendRequest()'><button>Search</button></a>
+	<div class = 'container'>
+		<div class = 'row'>
+			<div class = 'col s3 offset-s9'>
+			<p ng-if = 'user.username == undefined'><a href="#/login">Login to host a spot</a></p>
+			<p ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span> | <a href="#/create">Host a spot</a> | <a href="#/" ng-click = 'logout(user._id)'>Logout</a></p>
+			</div>
+		</div>
+		<div class = 'row'>
+			<div class = 'col s6 offset-s3'>
+				<h3>Welcome to the Parker App!</h3>
+				<p class = 'col s6 offset-s3'>Let us help you find a parking spot!</p>
+			</div>
+			<div class = 'col s6 offset-s4'>
+				
+			</div>
+		</div>
+		<!-- <a href="#/login">Login to host a spot</a> -->
+		<!-- <a href="#/create">Host a Spot</a> -->
+		<div class = 'row'>
+			<div class = 'col s8 offset-s2'>
+				<input ng-model = 'request.location' type = 'text' placeholder = 'location'>
+			</div>
+		</div>
+		<div class = 'row'>
+			<div class = 'col s2 offset-s3'>
+				Start Date: <input ng-model = 'request.start' type = 'date'>
+			</div>
+			<div class = 'col s2 offset-s1'>
+				End Date: <input ng-model = 'request.end' type = 'date'>
+			</div>
+		</div>
+		<div class = 'row'>
+			<div class = 'col s1 offset-s5'>
+				<a href='#/results' ng-click = 'sendRequest()'><button>Search</button></a>
+			</div>
+		</div>
+	</div>
 </body>
-<!-- </div> -->
+</div>
