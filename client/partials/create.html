@@ -1,22 +1,78 @@
-<div ng-controller = 'SpacesController'>
+<div ng-controller = 'ParkingSpacesController'>
 <title>Rent your Parking Space</title>
+<style type="text/css">
+.redText{
+	color: red;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('select').material_select();
+});
+</script>
 </head>
 <body>
-	<h3>Rent your Parking Space</h3>
-	<p>Type of Spot: </p>
-	<input type = 'radio' ng-model = 'newSpace.type' value = 'On Street'> On Street
-	<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Covered'> Off Street-Covered
-	<input type = 'radio' ng-model = 'newSpace.type' value = 'Off Street-Uncovered'> Off Street-Uncovered
-	<p>Type of Car:</p>
-	<input type = 'radio' ng-model = 'newSpace.car' value = 'Motorcycle'> Motorcycle
-	<input type = 'radio' ng-model = 'newSpace.car' value = 'Compact'> Compact
-	<input type = 'radio' ng-model = 'newSpace.car' value = 'Truck/SUV'> Truck/SUV
-	<p>Location</p>
-	Address: <input type = 'text' ng-model = 'newSpace.address' placeholder = 'address...'>
-	State: <input type = 'text' ng-model = 'newSpace.state' placeholder = 'state...'>
-	Zip Code: <input type = 'text' ng-model = 'newSpace.zip' placeholder = 'zip...'>
-	<p>Image</p>
-	URL (optional): <input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
-	<a href="#/result" ng-click = 'addSpace(user._id)'><button>Add</button></a>
+	<div class = 'container'>
+	{{user.username}}
+	<div class = 'row'>
+		<div class = 'col s6 offset-s3'>
+			<h3>Rent your Parking Space</h3>
+		</div>
+	</div>
+	<form name = 'spaceForm'>
+	<div class = 'row'>
+		<div class = 'col s6'>
+			<h5>What kind of spot?</h5>
+			<select ng-model = 'newSpace.type'>
+				<option value = 'On Street'>On Street</option>
+				<option value = 'Off Street-Covered'>Off Street-Covered</option>
+				<option value = 'Off Street-Uncovered'>Off Street-Uncovered</option>
+			</select>
+		</div>
+		<div class = 'col s6'>
+			<h5>What kind of vehicle?</h5>
+			<select ng-model = 'newSpace.car'>
+				<option value = 'Motorcycle'>Motorcycle</option>
+				<option value = 'Compact Car'>Compact Car</option>
+				<option value = 'Truck/SUV'>Truck/SUV</option>
+			</select>
+		</div>
+	</div>
+	<h5>Where is your spot?</h5>
+	<div class = 'row'>
+		<div class = 'col s6'>
+			Street: <input name = 'address' type = 'text' ng-model = 'newSpace.address' placeholder = 'street...' required>
+			<p class = 'redText' ng-show = 'spaceForm.address.$error.required && !spaceForm.address.$pristine'>Street is required</p>
+			City: <input name = 'city' type = 'text' ng-model = 'newSpace.city' placeholder = 'city...' required>
+			<p class = 'redText' ng-show = 'spaceForm.city.$error.required && !spaceForm.city.$pristine'>City is required</p>
+		</div>
+		<div class = 'col s6'>
+			State: <input name = 'state' type = 'text' ng-model = 'newSpace.state' ng-minlength = '2' ng-maxlength = '2' placeholder = 'state...' required>
+			<p class = 'redText' ng-show = 'spaceForm.state.$error.required && !spaceForm.state.$pristine'>State is required</p>
+			<p class = 'redText' ng-show = 'spaceForm.state.$error.minlength && !spaceForm.state.$pristine'>State must be 2 letters long</p>
+			<p class = 'redText' ng-show = 'spaceForm.state.$error.maxlength && !spaceForm.state.$pristine'>State must be 2 letters long</p>
+			Zip Code: <input name = 'zip' type = 'text' ng-model = 'newSpace.zip' placeholder = 'zip...' ng-maxlength = '5' required>
+			<p class = 'redText' ng-show = 'spaceForm.zip.$error.required && !spaceForm.zip.$pristine'>Zip Code is required</p>
+			<p class = 'redText' ng-show = 'spaceForm.zip.$error.maxlength && !spaceForm.zip.$pristine'>Zip Code must be 5 characters long</p>
+		</div>
+	</div>
+	<h5>When is it available?</h5>
+	<div class = 'row'>
+		<div class = 'col s6'>
+			<p>From</p>
+			<input name = 'dateStart' type = 'date' ng-model = 'newSpace.dateStart' required>
+			<h5>How much do you wanna charge?</h5>
+			<input name = 'price' type = 'number' ng-model = 'newSpace.price' placeholder = 'price...' required>
+			<p class = 'redText' ng-show = 'spaceForm.price.$error.required && !spaceForm.price.$pristine'>Price is required</p>
+		</div>
+		<div class = 'col s6'>
+			<p>Until</p>
+			<input name = 'dateEnd' type = 'date' ng-model = 'newSpace.dateEnd' required>
+			<h5>Do you have a picture?</h5>
+			<input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
+		</div>
+	</div>
+	<a href="#/result" ng-click = 'addSpace(user._id)'><button ng-disabled = 'spaceForm.$invalid'>Add</button></a>
+	</div>
 </body>
 </div>

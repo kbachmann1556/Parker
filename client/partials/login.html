@@ -1,16 +1,24 @@
 <div ng-controller = 'UsersController'>
-<title>Login or Register</title>
+<title>Login or Register - Parker</title>
 </head>
 <body>
-	<p>Login</p>
-	Username: <input type = 'text' ng-model = 'loginUser.username'>
-	Password: <input type = 'password' ng-model = 'loginUser.password'>
-	<a href="#/create"><button>Login - Create Listing</button></a>
-	<p>Register</p>
-	Username: <input type = 'text' ng-model = 'newUser.name'>
-	Email: <input type = 'email' ng-model = 'newUser.email'>
-	Password: <input type = 'password' ng-model = 'newUser.password'>
-	Confirm Password: <input type = 'password' ng-model = 'newUser.confirmPassword'>
-	<a href="#/create"><button>Register - Create Listing</button></a>
+	<div class = 'container'>
+		<div class = 'row'>
+			<div class = 'col s5'>
+				<h4>Login</h4>
+				Username: <input type = 'text' ng-model = 'loginUser.username'>
+				Password: <input type = 'password' ng-model = 'loginUser.password'>
+				<a href="#/create" ng-click = 'getUser()'><button>Login - Create Listing</button></a>
+			</div>
+			<div class = 'col s5 offset-s1'>
+				<h4>Register</h4>
+				Username: <input type = 'text' ng-model = 'newUser.username'>
+				Email: <input type = 'email' ng-model = 'newUser.email'>
+				Password: <input type = 'password' ng-model = 'newUser.password'>
+				Confirm Password: <input type = 'password' ng-model = 'newUser.confirmPassword'>
+				<a href="#/create" ng-click = 'addUser()'><button>Register - Create Listing</button></a>
+			</div>
+		</div>
+	</div>
 </body>
 </div>
