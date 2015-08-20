@@ -27,4 +27,8 @@ module.exports = function (app) {
 	app.get('/hostSpace/:id', function (req, res){
 		users.hostSpace(req, res);
 	})
+	app.post('/logout', function (req, res){
+		users.getSingleUser(req, res);
+		req.session.destroy();
+	})
 }
