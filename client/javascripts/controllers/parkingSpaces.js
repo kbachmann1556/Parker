@@ -15,4 +15,9 @@ parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFa
 			})
 		})
 	}
+	$scope.logout = function (user_id){
+		ParkingSpaceFactory.logout(user_id, function (data){
+			console.log('logged out - controller');
+		});
+	}
 })

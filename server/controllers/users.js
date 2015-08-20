@@ -27,7 +27,7 @@ module.exports = (function (req, res){
 			})
 		},
 		getSingleUser: function (req, res){
-			User.findOne({username: req.body.username, password: req.body.password}, function (err, user){
+			User.findOne({_id: req.body._id}, function (err, user){
 				if(err){
 					console.log(err);
 				}else{

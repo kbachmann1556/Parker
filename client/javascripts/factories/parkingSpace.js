@@ -24,5 +24,12 @@ parkerApp.factory('ParkingSpaceFactory', function ($http) {
 			callback(output);
 		})
 	}
+	factory.logout = function (user_id, callback){
+		var userID = {_id: user_id};
+		console.log(userID);
+		$http.post('/logout', userID).success(function (output){
+			console.log('logged out - factory');
+		});
+	}
 	return factory;
 })
