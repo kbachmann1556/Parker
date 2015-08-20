@@ -4,20 +4,37 @@
 .titleDescription{
 	margin-left: 135px;
 }
+#hero{
+	background-image: url('../images/129H.jpg');
+}
 </style>
 </head>
 <body>
-	<a href="#/login">Login to host a spot</a>
+	<!-- <a href="#/login">Login to host a spot</a> -->
 	<!-- <a href="#/create">Host a Spot</a> -->
-	<input ng-model = 'request.location' type = 'text' placeholder = 'location'>
-	Date start: <input ng-model = 'request.start' type = 'date'>
-	Date end: <input ng-model = 'request.end' type = 'date'>
-	<button ng-click = 'sendRequest()'>Search</button>
+	<!-- <input ng-model = 'request.location' type = 'text' placeholder = 'location'> -->
+	<!-- Date start: <input ng-model = 'request.start' type = 'date'> -->
+	<!-- Date end: <input ng-model = 'request.end' type = 'date'> -->
+	<!-- <button ng-click = 'sendRequest()'>Search</button> -->
+ <div id="hero">
+<nav>
+    <div class="nav-wrapper grey darken-3 tr">
+      <a href="#" class="brand-logo"><img class ="responsive-img"src="../images/parker-logo-new.png"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
+        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span> |  | </span></li>
+        <li><a ng-if = 'user.username != undefined' href="#/create">Host a spot</a></li>
+        <li><a ng-if = 'user.username != undefined' href="#/" ng-click = 'logout(user._id)'>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+ <!-- <img class="responsive-img" src="../images/129H.jpg"> -->
+ </div>
 	<div class = 'container'>
 		<div class = 'row'>
 			<div class = 'col s3 offset-s9'>
-			<p ng-if = 'user.username == undefined'><a href="#/login">Login to host a spot</a></p>
-			<p ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span> | <a href="#/create">Host a spot</a> | <a href="#/" ng-click = 'logout(user._id)'>Logout</a></p>
+	
+			
 			</div>
 		</div>
 		<div class = 'row'>
