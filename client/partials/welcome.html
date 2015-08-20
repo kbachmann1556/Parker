@@ -17,17 +17,17 @@
 	<!-- Date end: <input ng-model = 'request.end' type = 'date'> -->
 	<!-- <button ng-click = 'sendRequest()'>Search</button> -->
  <div id="hero">
-<nav>
-    <div class="nav-wrapper grey darken-3 tr">
-      <a href="#" class="brand-logo"><img class ="responsive-img"src="../images/parker-logo-new.png"></a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
-        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span> |  | </span></li>
-        <li><a ng-if = 'user.username != undefined' href="#/create">Host a spot</a></li>
-        <li><a ng-if = 'user.username != undefined' href="#/" ng-click = 'logout(user._id)'>Logout</a></li>
-      </ul>
-    </div>
-  </nav>
+	<nav>
+	    <div class="nav-wrapper grey darken-3 tr">
+	      <!-- <p><img class ="responsive-img"src="../images/parker-logo-new.png"></p> -->
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
+	        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span></span></li>
+	        <li><a ng-if = 'user.username != undefined' href="#/create">Host a spot</a></li>
+	        <li><button class = 'logoutbutton' ng-if = 'user.username != undefined' ng-click = 'logout(user._id)'><p class = 'logouttag'>Logout</p></button></li>
+	      </ul>
+	    </div>
+	  </nav>
  <!-- <img class="responsive-img" src="../images/129H.jpg"> -->
  </div>
 	<div class = 'container'>
