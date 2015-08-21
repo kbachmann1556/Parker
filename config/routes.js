@@ -31,4 +31,7 @@ module.exports = function (app) {
 		users.getSingleUser(req, res);
 		req.session.destroy();
 	})
+	app.post('/searchResults', function (req,res){
+		spaces.showResults (req,res);
+	})
 }

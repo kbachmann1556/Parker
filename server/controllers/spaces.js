@@ -41,6 +41,19 @@ module.exports = (function() {
 					res.json(space);
 				}
 			})
+		},
+		showResults: function(req,res){
+			console.log("Controller", req.body.location)
+			var city = req.body.location.split(", ")
+			console.log("City", city[1])
+			Space.find({city: city[1]}, function (err,spaces){
+				if(err){
+					console.log(err);
+				}
+				else{
+					res.json(spaces);
+				}
+			})
 		}
 	}
 })();
