@@ -22,13 +22,13 @@ $(document).ready(function() {
 	<div class = 'container'>
 	<div class = 'row'>
 		<div class = 'col s6 offset-s3'>
-			<h3>Rent your Parking Space</h3>
+			<h3 class = 'light-blue-text'>Rent your Parking Space</h3>
 		</div>
 	</div>
 	<form name = 'spaceForm'>
 	<div class = 'row'>
 		<div class = 'col s6'>
-			<h5>What kind of spot?</h5>
+			<h5 class = 'purple-text darken-4'>What kind of spot?</h5>
 			<select ng-model = 'newSpace.type'>
 				<option value = 'On Street'>On Street</option>
 				<option value = 'Off Street-Covered'>Off Street-Covered</option>
@@ -36,7 +36,7 @@ $(document).ready(function() {
 			</select>
 		</div>
 		<div class = 'col s6'>
-			<h5>What kind of vehicle?</h5>
+			<h5 class = 'purple-text darken-4'>What kind of vehicle?</h5>
 			<select ng-model = 'newSpace.car'>
 				<option value = 'Motorcycle'>Motorcycle</option>
 				<option value = 'Compact Car'>Compact Car</option>
@@ -44,7 +44,7 @@ $(document).ready(function() {
 			</select>
 		</div>
 	</div>
-	<h5>Where is your spot?</h5>
+	<h5 class = 'purple-text darken-4'>Where is your spot?</h5>
 	<div class = 'row'>
 		<div class = 'col s6'>
 			Street: <input name = 'address' type = 'text' ng-model = 'newSpace.address' placeholder = 'street...' required>
@@ -62,24 +62,24 @@ $(document).ready(function() {
 			<p class = 'redText' ng-show = 'spaceForm.zip.$error.maxlength && !spaceForm.zip.$pristine'>Zip Code must be 5 characters long</p>
 		</div>
 	</div>
-	<h5>When is it available?</h5>
+	<h5 class = 'purple-text darken-4'>When is it available?</h5>
 	<div class = 'row'>
 		<div class = 'col s6'>
 			<p>From</p>
 			<input name = 'dateStart' type = 'date' ng-model = 'newSpace.dateStart' required>
-			<h5>How much do you wanna charge?</h5>
+			<h5 class = 'purple-text darken-4'>How much do you wanna charge?</h5>
 			<input name = 'price' type = 'number' ng-model = 'newSpace.price' placeholder = 'price...' required>
 			<p class = 'redText' ng-show = 'spaceForm.price.$error.required && !spaceForm.price.$pristine'>Price is required</p>
 		</div>
 		<div class = 'col s6'>
 			<p>Until</p>
 			<input name = 'dateEnd' type = 'date' ng-model = 'newSpace.dateEnd' required>
-			<h5>Do you have a picture?</h5>
+			<h5 class = 'purple-text darken-4'>Do you have a picture?</h5>
 			<input type = 'text' ng-model = 'newSpace.image' placeholder = 'image URL (optional)...'>
 		</div>
 	</div>
 	</form>
-	<a href="#/result" ng-click = 'addSpace(user._id)'><button ng-disabled = 'spaceForm.$invalid'>Add</button></a>
+	<a href="#/result" ng-click = 'addSpace(user._id)'><button class = 'yellow accent-2' ng-disabled = 'spaceForm.$invalid'>Add</button></a>
 	</div>
 </body>
 </div>

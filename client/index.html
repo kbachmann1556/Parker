@@ -23,6 +23,9 @@
 			.when('/results', {
 				templateUrl: './partials/search.html'
 			})
+			.when('/spot/:id', {
+				templateUrl: './partials/results.html'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
@@ -34,6 +37,8 @@
 	<script type="text/javascript" src = './javascripts/controllers/parkingSpaces.js'></script>
 	<script type="text/javascript" src = './javascripts/factories/searchRequest.js'></script>
 	<script type="text/javascript" src = './javascripts/controllers/searchRequests.js'></script>
+	<script type="text/javascript" src = './javascripts/factories/result.js'></script>
+	<script type="text/javascript" src = './javascripts/controllers/results.js'></script>
 	<style type="text/css">
 	.redText{
 		color: red;

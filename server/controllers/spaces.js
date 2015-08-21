@@ -54,6 +54,15 @@ module.exports = (function() {
 					res.json(spaces);
 				}
 			})
+		},
+		getThisSpace: function (req, res){
+			Space.findOne({_id: req.params.id}, function (err, space){
+				if(err){
+					console.log(err);
+				}else{
+					res.json(space);
+				}
+			})
 		}
 	}
 })();
