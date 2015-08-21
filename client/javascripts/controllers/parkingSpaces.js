@@ -1,4 +1,4 @@
-parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFactory){
+parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFactory, SearchFactory){
 	$scope.spaces = [];
 	ParkingSpaceFactory.getSpaces(function (data){
 		$scope.spaces = data;
@@ -20,5 +20,9 @@ parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFa
 			console.log('logged out - controller');
 			$location.path('/');
 		});
+	}
+	$scope.sendRequest = function (){
+		SearchFactory.getLocation($scope.request);
+		SearchFactory.getResults($scope.request);
 	}
 })

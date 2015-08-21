@@ -1,0 +1,29 @@
+<style type="text/css">
+#map{
+	width: 500px;
+	height: 400px;
+}
+</style>
+<div ng-controller = "RequestsController">
+ <div id="hero">
+<nav>
+    <div class="nav-wrapper grey darken-3 tr">
+      <!-- <a href="#" class="brand-logo"><img class ="responsive-img"src="../images/parker-logo-new.png"></a> -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
+        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></li>
+        <li><a ng-if = 'user.username != undefined' href="#/create">Host a spot</a></li>
+        <li><a ng-if = 'user.username != undefined' href="#/" ng-click = 'logout(user._id)'>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+ <!-- <img class="responsive-img" src="../images/129H.jpg"> -->
+ </div>
+ <div class="container">
+<h1>Search Results</h1>
+<div id="map"></div>
+<div ng-controller = "ParkingSpacesController">
+  <p ng-repeat="result in results">{{result.address}}</p>
+</div>
+</div>
+</div>
