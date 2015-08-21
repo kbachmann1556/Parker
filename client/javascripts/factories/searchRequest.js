@@ -14,7 +14,7 @@ parkerApp.factory('SearchFactory', function($http){
 	factory.getResults = function(info){
 		$http.post('/searchResults', info).success(function(response){
 		searchResults = response;
-		console.log(response);
+		console.log(response, 'getResults factory');
 		});
 	}
 	factory.sendResults = function(callback){

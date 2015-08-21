@@ -22,8 +22,11 @@
  <div class="container">
 <h1>Search Results</h1>
 <div id="map"></div>
-<div ng-controller = "ParkingSpacesController">
-  <p ng-repeat="result in results">{{result.address}}</p>
-</div>
+  <ul>
+    <li ng-repeat = 'result in results'>
+      <a href = "#/spot/{{result._id}}">{{result.address}}</a>
+    </li>
+  </ul>
+
 </div>
 </div>

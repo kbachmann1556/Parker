@@ -34,4 +34,7 @@ module.exports = function (app) {
 	app.post('/searchResults', function (req,res){
 		spaces.showResults (req,res);
 	})
+	app.get('/singleSpace/:id', function (req, res){
+		spaces.getThisSpace(req, res);
+	})
 }
