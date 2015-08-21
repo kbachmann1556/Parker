@@ -1,22 +1,64 @@
+<script type="text/javascript">
+// var compareTo = function() {
+//     return {
+//         require: "ngModel",
+//         scope: {
+//             otherModelValue: "=compareTo"
+//         },
+//         link: function(scope, element, attributes, ngModel) {
+             
+//             ngModel.$validators.compareTo = function(modelValue) {
+//                 return modelValue == scope.otherModelValue;
+//             };
+ 
+//             scope.$watch("otherModelValue", function() {
+//                 ngModel.$validate();
+//             });
+//         }
+//     };
+// };
+ 
+// parkerApp.directive("compareTo", compareTo);
+// </script>
 <div ng-controller = 'UsersController'>
 <title>Login or Register - Parker</title>
 </head>
 <body>
+	<nav>
+	    <div class="nav-wrapper grey darken-3 tr">
+	      <!-- <p><img class ="responsive-img"src="../images/parker-logo-new.png"></p> -->
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <!-- <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
+	        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span></li>
+	        <li><a ng-if = 'user.username != undefined' href="#/" ng-click = 'logout(user._id)'>Logout</a></li> -->
+	      </ul>
+	    </div>
+	</nav>
 	<div class = 'container'>
 		<div class = 'row'>
 			<div class = 'col s5'>
 				<h4>Login</h4>
-				Username: <input type = 'text' ng-model = 'loginUser.username'>
-				Password: <input type = 'password' ng-model = 'loginUser.password'>
-				<a href="#/create" ng-click = 'getUser()'><button>Login - Create Listing</button></a>
+				<form name = 'loginForm'>
+					Username: <input name = 'username' type = 'text' ng-model = 'loginUser.username' required>
+					<p class = 'redText' ng-show = 'loginForm.username.$error.required && !loginForm.username.$pristine'>Username is required</p>
+					Password: <input name = 'password' type = 'password' ng-model = 'loginUser.password' required>
+					<p class = 'redText' ng-show = 'loginForm.password.$error.required && !loginForm.password.$pristine'>Password is required</p>
+				</form>
+				<button ng-click = 'getUser()' ng-disabled = 'loginForm.$invalid'>Login - Create Listing</button>
 			</div>
 			<div class = 'col s5 offset-s1'>
 				<h4>Register</h4>
-				Username: <input type = 'text' ng-model = 'newUser.username'>
-				Email: <input type = 'email' ng-model = 'newUser.email'>
-				Password: <input type = 'password' ng-model = 'newUser.password'>
-				Confirm Password: <input type = 'password' ng-model = 'newUser.confirmPassword'>
-				<a href="#/create" ng-click = 'addUser()'><button>Register - Create Listing</button></a>
+				<form name = 'registerForm'>
+					Username: <input name = 'username' type = 'text' ng-model = 'newUser.username' required>
+					<p class = 'redText' ng-show = 'registerForm.username.$error.required && !registerForm.username.$pristine'>Username is required</p>
+					Email: <input name = 'email' type = 'email' ng-model = 'newUser.email' required>
+					<p class = 'redText' ng-show = 'registerForm.email.$error.required && !registerForm.email.$pristine'>Email is required</p>
+					Password: <input id = 'password' name = 'password' type = 'password' ng-model = 'newUser.password' required>
+					<p class = 'redText' ng-show = 'registerForm.password.$error.required && !registerForm.password.$pristine'>Password is required</p>
+					<!-- Confirm Password: <input id = 'confirmPassword' name = 'confirmPassword' type = 'password' ng-model = 'newUser.confirmPassword' compare-to = 'newUser.password' required>
+					<p class = 'redText' ng-show = 'registerForm.confirmPassword.$error && !registerForm.confirmPassword.$pristine'>Passwords do not match</p> -->
+				</form>
+				<button ng-click = 'addUser()' ng-disabled = 'registerForm.$invalid'>Register - Create Listing</button>
 			</div>
 		</div>
 	</div>

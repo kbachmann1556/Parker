@@ -1,4 +1,4 @@
-parkerApp.factory('ParkingSpaceFactory', function ($http) {
+parkerApp.factory('ParkingSpaceFactory', function ($http, $location) {
 	var factory = {};
 	factory.getSpaces = function (callback){
 		$http.get('/getSpaces').success(function (output){
@@ -29,6 +29,7 @@ parkerApp.factory('ParkingSpaceFactory', function ($http) {
 		console.log(userID);
 		$http.post('/logout', userID).success(function (output){
 			console.log('logged out - factory');
+			$location.path('/');
 		});
 	}
 	return factory;
