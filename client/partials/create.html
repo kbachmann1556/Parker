@@ -14,7 +14,7 @@ $(document).ready(function() {
 	      <!-- <p><img class ="responsive-img"src="../images/parker-logo-new.png"></p> -->
 	      <ul id="nav-mobile" class="right hide-on-med-and-down">
 	        <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
-	        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span></li>
+	        <li><a ng-if = 'user.username != undefined' href = "#/">Welcome <span ng-bind = 'user.username'></span></a></li>
 	        <li><button class = 'logoutbutton' ng-if = 'user.username != undefined' ng-click = 'logout(user._id)'><p class = 'logouttag'>Logout</p></button></li>
 	      </ul>
 	    </div>

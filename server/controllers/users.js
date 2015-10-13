@@ -19,6 +19,7 @@ module.exports = (function (req, res){
 		},
 		getUser: function (req, res){
 			User.findOne({username: req.params.username, password: req.params.password}, function (err, user){
+				// console.log('getUser user.js controller', user);
 				if(err){
 					console.log(err);
 				}else{

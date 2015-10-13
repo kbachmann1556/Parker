@@ -1,4 +1,4 @@
-parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFactory, SearchFactory){
+parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFactory, SearchFactory, $location){
 	$scope.spaces = [];
 	ParkingSpaceFactory.getSpaces(function (data){
 		$scope.spaces = data;
@@ -22,7 +22,12 @@ parkerApp.controller('ParkingSpacesController', function ($scope, ParkingSpaceFa
 		});
 	}
 	$scope.sendRequest = function (){
-		SearchFactory.getLocation($scope.request);
-		SearchFactory.getResults($scope.request);
+		SearchFactory.getLocation($scope.request, function (data){
+			SearchFactory.setSession(data, function (data){
+				console.log('you set the search session', data);
+				$location.path('/results');
+			});
+		});
+		// SearchFactory.getResults($scope.request);
 	}
 })
