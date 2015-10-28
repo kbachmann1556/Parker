@@ -5,6 +5,7 @@
 	<script type = 'text/javascript' src = './stylesheets/materialize/js/materialize.min.js'></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript">
 	var parkerApp = angular.module('parkerApp', ['ngRoute']);
 
@@ -19,6 +20,12 @@
 			.when('/create', {
 				templateUrl: './partials/create.html'
 			})
+			.when('/results', {
+				templateUrl: './partials/search.html'
+			})
+			.when('/spot/:id', {
+				templateUrl: './partials/results.html'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
@@ -28,6 +35,25 @@
 	<script type="text/javascript" src = './javascripts/controllers/users.js'></script>
 	<script type="text/javascript" src = './javascripts/factories/parkingSpace.js'></script>
 	<script type="text/javascript" src = './javascripts/controllers/parkingSpaces.js'></script>
+	<script type="text/javascript" src = './javascripts/factories/searchRequest.js'></script>
+	<script type="text/javascript" src = './javascripts/controllers/searchRequests.js'></script>
+	<script type="text/javascript" src = './javascripts/factories/result.js'></script>
+	<script type="text/javascript" src = './javascripts/controllers/results.js'></script>
+	<style type="text/css">
+	.redText{
+		color: red;
+	}
+	.logoutbutton{
+		background-color: #424242;
+		height: 63px;
+		padding-bottom: 10px;
+		border: none;
+	}
+	.logouttag{
+		margin-top: -2px;
+		padding-top: 0px;
+	}
+	</style>
 	<div ng-view = ''>
 	</div>
 </html>

@@ -31,4 +31,16 @@ module.exports = function (app) {
 		users.getSingleUser(req, res);
 		req.session.destroy();
 	})
+	app.post('/searchResults', function (req,res){
+		spaces.showResults (req,res);
+	})
+	app.get('/singleSpace/:id', function (req, res){
+		spaces.getThisSpace(req, res);
+	})
+	app.post('/setSearchSession', function (req, res){
+		spaces.searchSession(req, res);
+	})
+	app.get('/searchSession', function (req, res){
+		spaces.getSearchSession(req, res);
+	})
 }

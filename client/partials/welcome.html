@@ -4,20 +4,44 @@
 .titleDescription{
 	margin-left: 135px;
 }
+#hero{
+	background-image: url('../images/129H.jpg');
+}
 </style>
-</head>
 <body>
+	<!-- <a href="#/login">Login to host a spot</a> -->
+	<!-- <a href="#/create">Host a Spot</a> -->
+	<!-- <input ng-model = 'request.location' type = 'text' placeholder = 'location'> -->
+	<!-- Date start: <input ng-model = 'request.start' type = 'date'> -->
+	<!-- Date end: <input ng-model = 'request.end' type = 'date'> -->
+	<!-- <button ng-click = 'sendRequest()'>Search</button> -->
+</head>
+ <div id="hero">
+
+	<nav>
+	    <div class="nav-wrapper grey darken-3 tr">
+	      <!-- <p><img class ="responsive-img"src="../images/parker-logo-new.png"></p> -->
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a ng-if = 'user.username == undefined' href="#/login">Login</a></li>
+	        <li><span ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span></span></li>
+	        <li><a ng-if = 'user.username != undefined' href="#/create">Host a spot</a></li>
+	        <li><button class = 'logoutbutton' ng-if = 'user.username != undefined' ng-click = 'logout(user._id)'><p class = 'logouttag'>Logout</p></button></li>
+	      </ul>
+	    </div>
+	  </nav>
+ <!-- <img class="responsive-img" src="../images/129H.jpg"> -->
+ </div>
 	<div class = 'container'>
 		<div class = 'row'>
 			<div class = 'col s3 offset-s9'>
-			<p ng-if = 'user.username == undefined'><a href="#/login">Login to host a spot</a></p>
-			<p ng-if = 'user.username != undefined'>Welcome <span ng-bind = 'user.username'></span> | <a href="#/create">Host a spot</a> | <a href="#/" ng-click = 'logout(user._id)'>Logout</a></p>
+	
+			
 			</div>
 		</div>
 		<div class = 'row'>
 			<div class = 'col s6 offset-s3'>
-				<h3>Welcome to the Parker App!</h3>
-				<p class = 'col s6 offset-s3'>Let us help you find a parking spot!</p>
+				<h3 class = 'light-blue-text'>Welcome to the Parker App!</h3>
+				<p class = 'col s6 offset-s3 purple-text darken-4'>Let us help you find a parking spot!</p>
 			</div>
 			<div class = 'col s6 offset-s4'>
 				
@@ -40,7 +64,7 @@
 		</div>
 		<div class = 'row'>
 			<div class = 'col s1 offset-s5'>
-				<a href='#/results' ng-click = 'sendRequest()'><button>Search</button></a>
+				<button class = 'yellow accent-2' ng-click = 'sendRequest()'>Search</button>
 			</div>
 		</div>
 	</div>
